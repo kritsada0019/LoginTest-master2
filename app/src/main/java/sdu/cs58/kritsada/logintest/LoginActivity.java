@@ -1,5 +1,6 @@
 package sdu.cs58.kritsada.logintest;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,10 @@ public class LoginActivity extends AppCompatActivity {
                 //ตรวจสอบการlogin
                 if ((userString.equals("admin"))&&(passwordString.equals("1234"))){
                     Toast.makeText(getApplicationContext(), "Login success!! " , Toast.LENGTH_SHORT).show();
+                    //ส่งข้อมูลnameStringไปหน้า MainActivity
+                    Intent mainIntent = new Intent(LoginActivity.this, MainActivity.class);
+                    mainIntent.putExtra("nameString", nameString);
+                  startActivity(mainIntent);
                 }else {
                     Toast.makeText(getApplicationContext(), "Login fail!! " , Toast.LENGTH_SHORT).show();
                 }
